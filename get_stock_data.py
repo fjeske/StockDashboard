@@ -11,9 +11,7 @@ def main():
         #creates an object of a stock
         stocks[f"{ticker}"] = Stock(ticker=tickers[ticker], stock_name=ticker, start_date='2019-01-14', end_date=str(datetime.now().strftime('%Y-%m-%d')))
 
-    stocks['apple'].get_data()
-    stocks['amazon'].get_data()
-    stocks['starbucks'].get_data()
+        stocks[ticker].get_data()
 
 if __name__ == "__main__":
     main()
