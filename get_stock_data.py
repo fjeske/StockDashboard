@@ -1,23 +1,19 @@
 from datetime import datetime
 from create_stock import Stock
-
+from settings import tickers
 
 def main():
-    tickers = ['APC.DE', 'AMZ.DE', 'SRB.DE']
+    stocks = {}
+    for ticker in tickers:
+        print(ticker)
+        print(tickers[ticker])
 
-    #creates an object of a stock
-    apple = Stock(ticker=tickers[0], stock_name='Apple', start_date='2019-01-14', end_date=str(datetime.now().strftime('%Y-%m-%d')))
-    amazon = Stock(ticker=tickers[1], stock_name='Amazon', start_date='2019-01-14', end_date=str(datetime.now().strftime('%Y-%m-%d')))
-    starbucks = Stock(ticker=tickers[2], stock_name='Starbucks', start_date='2019-01-14', end_date=str(datetime.now().strftime('%Y-%m-%d')))
+        #creates an object of a stock
+        stocks[f"{ticker}"] = Stock(ticker=tickers[ticker], stock_name=ticker, start_date='2019-01-14', end_date=str(datetime.now().strftime('%Y-%m-%d')))
 
-    apple.get_data()
-    amazon.get_data()
-    starbucks.get_data()
-
-
-
-    # for ticker in tickers:
-    #     get_data(ticker)
+    stocks['apple'].get_data()
+    stocks['amazon'].get_data()
+    stocks['starbucks'].get_data()
 
 if __name__ == "__main__":
     main()
